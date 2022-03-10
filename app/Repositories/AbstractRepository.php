@@ -57,7 +57,7 @@ abstract class AbstractRepository implements RepositoryInterface
                 'order_by' => implode(',', array_keys($orderBy)),
                 'limit' => $limit
             ])
-            ->toArray();
+            ->items();
     }
 
     /**
