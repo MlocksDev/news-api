@@ -25,37 +25,34 @@
 
 declare(strict_types=1);
 
-namespace App\Services\Author;
+namespace App\Helpers;
 
-use App\Services\AbstractService;
+use InvalidArgumentException;
 
 /**
- * class AuthorService
- * @package App\Services\AuthorService
+ * Class OrderByHelper
+ * @package App\Helpers
  */
-class AuthorService extends AbstractService
+class OrderByHelper
 {
-
-    /**
-     * @param array $data
-     * @return array
-     */
-    public function create(array $data): array
+    public static function treatOrderBy(string $orderBy): array
     {
-        $data['password'] = encrypt($data['password']);
+        $orderByArray = [];
 
-        return $this->repository->create($data);
-    }
+        foreach (explode(',', $orderBy) as $value) {
+            $value = trim($value);
 
-    /**
-     * @param string $param
-     * @param array $data
-     * @return bool
-     */
-    public function editBy(string $param, array $data): bool
-    {
-        $data['password'] = encrypt($data['password']);
+            if (!preg_match("/^(-)?[A-Za-z0-9_]+$/", $value)) {
+                throw new InvalidArgumentException('The parameter "order_by" has an invalid format.');
+            }
 
-        return $this->repository->editBy($param, $data);
+            $orderByArray[$value] = 'ASC';
+
+            if (strstr($value, '-')) {
+                $orderByArray[$value] = 'DESC';
+            }
+        }
+
+        return $orderByArray;
     }
 }

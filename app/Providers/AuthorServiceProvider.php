@@ -13,8 +13,6 @@ class AuthorServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        parent::register();
-
         $this->app->bind(AuthorService::class, function ($app) {
             return new AuthorService(new AuthorRepository(new Author()));
         });
