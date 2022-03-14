@@ -23,59 +23,21 @@
  * THE SOFTWARE.
  */
 
-declare(strict_types=1);
+namespace App\Http\Controllers;
 
-namespace App\Services;
+use Laravel\Lumen\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Auth;
 
-/**
- * Interface ServiceInterface
- * @package App\Services
- */
-interface ServiceInterface
+class Controller extends BaseController
 {
-    /**
-     * @param array $data
-     * @return array
-     */
-    public function create(array $data): array;
 
-    /**
-     * @param int $limit
-     * @param array $orderBy
-     * @return array
-     */
-    public function findAll(int $limit = 10, array $orderBy = []): array;
-
-    /**
-     * @param int $id
-     * @return array
-     */
-    public function findOneBy(int $id): array;
-
-    /**
-     * @param string $param
-     * @param array $data 
-     * @return bool 
-     */
-    public function editBy(string $param, array $data): bool;
-
-    /**
-     * @param int $id
-     * @return bool
-     */
-    public function delete(int $id): bool;
-
-    /**
-     * @param string $string
-     * @param array $searchFields
-     * @param int $limit
-     * @param  array $orderBy
-     * @return array
-     */
-    public function searchBy(
-        string $string,
-        array $searchFields,
-        int $limit = 10,
-        array $orderBy = []
-    ): array;
+    protected function respondWithToken($token)
+    {
+        return response()->json([
+            'message' => 'Authorized',
+            'token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' => Auth::factory()->getTTL() * 60
+        ], 200);
+    }
 }

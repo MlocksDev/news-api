@@ -23,33 +23,25 @@
  * THE SOFTWARE.
  */
 
-declare(strict_types=1);
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-namespace App\Http\Controllers\V1\Author;
+use App\User;
+use Faker\Generator as Faker;
 
-use App\Http\Controllers\AbstractController;
-use App\Services\Author\AuthorService;
+/*
+|--------------------------------------------------------------------------
+| Model Factories
+|--------------------------------------------------------------------------
+|
+| This directory should contain each of the model factory definitions for
+| your application. Factories provide a convenient way to generate new
+| model instances for testing / seeding your application's database.
+|
+*/
 
-/**
- * Class AuthorController
- * @package App\Http\Controllers\V1\Author
- */
-class AuthorController extends AbstractController
-{
-    /**
-     * @var array/string[]
-     */
-    protected array $searchFields = [
-        'nome',
-        'sobrenome'
+$factory->define(User::class, function (Faker $faker) {
+    return [
+        'name' => $faker->name,
+        'email' => $faker->email,
     ];
-
-    /**
-     * AuthorController Constructor
-     * @param AuthorService $service
-     */
-    public function __construct(AuthorService $service)
-    {
-        parent::__construct($service);
-    }
-}
+});

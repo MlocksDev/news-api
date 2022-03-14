@@ -23,16 +23,34 @@
  * THE SOFTWARE.
  */
 
-declare(strict_types=1);
+namespace App\Models;
 
-namespace App\Repositories\Author;
+use Illuminate\Database\Eloquent\Model;
 
-use App\Repositories\AbstractRepository;
 
-/**
- * class AuthorRepository
- * @package App\Repositories\Author
- */
-class AuthorRepository extends AbstractRepository
+class Article extends Model
 {
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'article';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'user_id', 'title', 'description', 'status'
+    ];
+
+    /**
+     * Get the user that owns the article.
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User', 'user_id');
+    }
 }

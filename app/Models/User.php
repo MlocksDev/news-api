@@ -23,59 +23,63 @@
  * THE SOFTWARE.
  */
 
-declare(strict_types=1);
+namespace App\Models;
 
-namespace App\Repositories;
+use Illuminate\Auth\Authenticatable;
+use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Database\Eloquent\Model;
+use Laravel\Lumen\Auth\Authorizable;
 
-/**
- * Interface RepositoryInterface
- * @package App\Repositories
- */
-interface RepositoryInterface
+use Tymon\JWTAuth\Contracts\JWTSubject;
+
+class User extends Model implements AuthenticatableContract, AuthorizableContract, JWTSubject
 {
+    use Authenticatable, Authorizable;
+
     /**
-     * @param array $data
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name', 'email',
+    ];
+
+    /**
+     * The attributes excluded from the model's JSON form.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password',
+    ];
+
+    /**
+     * Get the identifier that will be stored in the subject claim of the JWT.
+     *
+     * @return mixed
+     */
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    /**
+     * Return a key value array, containing any custom claims to be added to the JWT.
+     *
      * @return array
      */
-    public function create(array $data): array;
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
 
     /**
-     * @param int $limit
-     * @param array $orderBy
-     * @return array
+     * Get the articles.
      */
-    public function findAll(int $limit = 10, array $orderBy = []): array;
-
-    /**
-     * @param int $id
-     * @return array
-     */
-    public function findOneBy(int $id): array;
-
-    /**
-     * @param string $param
-     * @param array $data 
-     * @return bool 
-     */
-    public function editBy(string $param, array $data): bool;
-
-    /**
-     * @param int $id
-     * @return bool
-     */
-    public function delete(int $id): bool;
-
-    /**
-     * @param string $string
-     * @param array $searchFields
-     * @param int $limit
-     * @param  array $orderBy
-     * @return array
-     */
-    public function searchBy(
-        string $string,
-        array $searchFields,
-        int $limit = 10,
-        array $orderBy = []
-    ): array;
+    public function articles()
+    {
+        return $this->hasMany('App\Models\Article');
+    }
 }

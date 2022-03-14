@@ -22,9 +22,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
-/** @var \Laravel\Lumen\Routing\Router $router */
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -36,101 +33,40 @@
 |
 */
 
-use App\Models\Author\Author;
-use App\Models\News\News;
-
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-//http:localhost:8080/api/v1
-$router->group(['prefix' => 'api/v1', 'namespace' => 'V1\Author', 'as' => Author::class], function () use ($router) {
+$router->group([
+    'prefix' => 'api'
+], function ($router) {
 
-    $router->get('/authors', [
-        'uses' => 'AuthorController@findAll'
-    ]);
+    // User Register Route => /api/register
+    $router->post('register', 'AuthController@register');
 
-    $router->get('/authors/{id}', [
-        'uses' => 'AuthorController@findOneBy'
-    ]);
+    // User Login Route  => /api/login
+    $router->post('login', 'AuthController@login');
 
-    $router->post('/authors', [
-        'uses' => 'AuthorController@create'
-    ]);
+    // User Logout Route  => /api/logout
+    $router->post('logout', 'AuthController@logout');
 
-    $router->put('/authors/{param}', [
-        'uses' => 'AuthorController@editBy'
-    ]);
+    // Refresh Token Route => /api/refresh
+    $router->post('refresh', 'AuthController@refresh');
 
-    $router->patch('/authors/{param}', [
-        'uses' => 'AuthorController@editBy'
-    ]);
+    // User Profile Route  => /api/profile
+    $router->get('profile', 'UserController@profile');
 
-    $router->delete('/authors/{id}', [
-        'uses' => 'AuthorController@delete'
-    ]);
-});
+    // User by id Route => /api/users/1
+    $router->get('users/{id}', 'UserController@get');
 
-$router->group(['prefix' => 'api/v1', 'namespace' => 'V1\News', 'as' => News::class], function () use ($router) {
-    $router->get('/news', [
-        'uses' => 'NewsController@findAll'
-    ]);
+    // All Users Route => /api/users
+    $router->get('users', 'UserController@list');
 
-    $router->get('/news/author/{author}', [
-        'uses' => 'NewsController@findByAuthor'
-    ]);
-
-    $router->get('/news/{param}', [
-        'uses' => 'NewsController@findBy'
-    ]);
-
-    $router->post('/news', [
-        'uses' => 'NewsController@create'
-    ]);
-
-    $router->put('/news/{param}', [
-        'uses' => 'NewsController@editBy'
-    ]);
-
-    $router->patch('/news/{param}', [
-        'uses' => 'NewsController@editBy'
-    ]);
-
-    $router->delete('/news/{param}', [
-        'uses' => 'NewsController@deleteBy'
-    ]);
-
-    $router->delete('/news/{author}', [
-        'uses' => 'NewsController@deleteByAuthor'
-    ]);
-});
-
-$router->group(['prefix' => 'api/v1', 'namespace' => 'V1\ImageNews'], function () use ($router) {
-    $router->post('/imageNews', [
-        'uses' => 'ImageNewsController@create'
-    ]);
-    $router->get('/imageNews', [
-        'uses' => 'ImageNewsController@findAll'
-    ]);
-    $router->get('/imageNews/news/{news}', [
-        'uses' => 'ImageNewsController@findByNews'
-    ]);
-    $router->get('/imagens-noticias/{id}', [
-        'uses' => 'ImageNewsController@findOneBy'
-    ]);
-    $router->get('/imageNews/{param}', [
-        'uses' => 'ImageNewsController@findBy'
-    ]);
-    $router->put('/imageNews/{param}', [
-        'uses' => 'ImageNewsController@editBy'
-    ]);
-    $router->patch('/imageNews/{param}', [
-        'uses' => 'ImageNewsController@editBy'
-    ]);
-    $router->delete('/imageNews/news/{news}', [
-        'uses' => 'ImageNewsController@deleteByNews'
-    ]);
-    $router->delete('/imageNews/{id}', [
-        'uses' => 'ImageNewsController@delete'
-    ]);
+    // Article Routes
+    $router->get('articles', "ArticlesController@list");
+    $router->get('articles/by-user/{user_id}', "ArticlesController@listByUser");
+    $router->get('articles/{id}', "ArticlesController@get");
+    $router->post('articles', "ArticlesController@create");
+    $router->put('articles/{id}', "ArticlesController@put");
+    $router->delete('articles/{id}', "ArticlesController@delete");
 });

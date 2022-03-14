@@ -23,41 +23,23 @@
  * THE SOFTWARE.
  */
 
-declare(strict_types=1);
+return [
+    'defaults' => [
+        'guard' => 'api',
+        'passwords' => 'users',
+    ],
 
-namespace App\Services\ImageNews;
+    'guards' => [
+        'api' => [
+            'driver' => 'jwt',
+            'provider' => 'users',
+        ],
+    ],
 
-use App\Services\AbstractService;
-use App\Repositories\ImageNews\ImageNewsRepository;
-
-/**
- * Class ImageNewsService
- * @package App\Services\ImageNews
- */
-class ImageNewsService extends AbstractService
-{
-    private ImageNewsRepository $repository;
-
-    public function __construct(ImageNewsRepository $repository)
-    {
-        $this->repository = $repository;
-    }
-
-    /**
-     * @param int $newsId
-     * @return array
-     */
-    public function findByNews(int $newsId): array
-    {
-        return $this->repository->findByNews($newsId);
-    }
-
-    /**
-     * @param int $newsId
-     * @return bool 
-     */
-    public function deleteByNews(int $newsId): bool
-    {
-        return $this->repository->deleteByNews($newsId);
-    }
-}
+    'providers' => [
+        'users' => [
+            'driver' => 'eloquent',
+            'model' => \App\User::class
+        ]
+    ]
+];

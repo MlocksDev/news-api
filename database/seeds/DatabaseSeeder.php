@@ -23,36 +23,17 @@
  * THE SOFTWARE.
  */
 
-declare(strict_types=1);
+use Illuminate\Database\Seeder;
 
-namespace App\Helpers;
-
-use InvalidArgumentException;
-
-/**
- * Class OrderByHelper
- * @package App\Helpers
- */
-class OrderByHelper
+class DatabaseSeeder extends Seeder
 {
-    public static function treatOrderBy(string $orderBy): array
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
     {
-        $orderByArray = [];
-
-        foreach (explode(',', $orderBy) as $value) {
-            $value = trim($value);
-
-            if (!preg_match("/^(-)?[A-Za-z0-9_]+$/", $value)) {
-                throw new InvalidArgumentException('The parameter "order_by" has an invalid format.');
-            }
-
-            $orderByArray[$value] = 'ASC';
-
-            if (strstr($value, '-')) {
-                $orderByArray[$value] = 'DESC';
-            }
-        }
-
-        return $orderByArray;
+        // $this->call('UsersTableSeeder');
     }
 }

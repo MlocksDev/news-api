@@ -23,23 +23,25 @@
  * THE SOFTWARE.
  */
 
-declare(strict_types=1);
+namespace App\Models;
 
-namespace App\Providers;
+use Illuminate\Database\Eloquent\Model;
 
-use App\Models\News\News;
-use App\Repositories\News\NewsRepository;
-use App\Services\News\NewsService;
-use Illuminate\Support\ServiceProvider;
-
-class NewsServiceProvider extends ServiceProvider
+class Authors extends Model
 {
-    public function register()
-    {
-        parent::register();
+    /**
+     * The table associated with the model.
+     * 
+     * @var string 
+     */
+    protected $table = 'authors';
 
-        $this->app->bind(NewsService::class, function ($app) {
-            return new NewsService(new NewsRepository(new News()));
-        });
-    }
+    /**
+     * The attributes that are mass assignable.
+     * 
+     * @var array 
+     */
+    protected $fillable = [
+        'id', 'name', 'lastname', 'email', 'password', 'gender', 'active', 'created_at', 'updated_at', 'deleted_at'
+    ];
 }

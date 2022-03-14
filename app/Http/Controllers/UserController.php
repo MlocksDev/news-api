@@ -23,49 +23,61 @@
  * THE SOFTWARE.
  */
 
-declare(strict_types=1);
-
 namespace App\Http\Controllers;
 
-use Illuminate\Http\JsonResponse;
+use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-/**
- * Interface ControllerInterface
- * @package App\Http\Controllers
- */
-interface ControllerInterface
+class UserController extends Controller
 {
     /**
-     * @param Request $request
-     * @return JsonResponse
+     * Create a new controller instance.
+     *
+     * @return void
      */
-    public function create(Request $request): JsonResponse;
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     /**
-     * @param Request $request
-     * @return JsonResponse
+     * Get the authenticated User.
+     *
+     * @return Response
      */
-    public function findAll(Request $request): JsonResponse;
+    public function profile()
+    {
+        return response()->json(['user' => Auth::user()], 200);
+    }
 
     /**
-     * @param Request $request
-     * @param int $id
-     * @return JsonResponse
+     * Get all User.
+     *
+     * @return Response
      */
-    public function findOneBy(Request $request, int $id): JsonResponse;
+    public function list()
+    {
+        return response()->json(['users' => User::all()], 200);
+    }
 
     /**
-     * @param Request $request
-     * @param string $param
-     * @return JsonResponse
+     * Get one user.
+     *
+     * @return Response
      */
-    public function editBy(Request $request, string $param): JsonResponse;
+    public function get($id)
+    {
 
-    /**
-     * @param Request $request
-     * @param int $id
-     * @return JsonResponse
-     */
-    public function delete(Request $request, int $id): JsonResponse;
+        try {
+
+            $user = User::findOrFail($id);
+
+            return response()->json(['user' => $user], 200);
+        } catch (\Exception $e) {
+
+            return response()->json(['message' => 'User not found!'], 404);
+        }
+    }
 }

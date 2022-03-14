@@ -52,3 +52,11 @@ CREATE TABLE IF NOT EXISTS `image_news` (
   INDEX `imagens_noticias_noticia` (`news_id` ASC),
   CONSTRAINT `imagens_noticias_noticia` FOREIGN KEY (`news_id`) REFERENCES `news` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
+
+/* CREATE TABLE  `migrations` */
+CREATE TABLE IF NOT EXISTS `migrations` (
+  `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `migration` VARCHAR(255) NOT NULL,
+  `batch` INT(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;

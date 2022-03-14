@@ -23,39 +23,33 @@
  * THE SOFTWARE.
  */
 
-declare(strict_types=1);
+namespace App\Models;
 
-namespace App\Services\Author;
+use Illuminate\Database\Eloquent\Model;
 
-use App\Services\AbstractService;
-
-/**
- * class AuthorService
- * @package App\Services\AuthorService
- */
-class AuthorService extends AbstractService
+class News extends Model
 {
+    /**
+     * The table associated with the model.
+     * 
+     * @var string 
+     */
+    protected $table = 'news';
 
     /**
-     * @param array $data
-     * @return array
+     * The attributes that are mass assignable.
+     * 
+     * @var array
      */
-    public function create(array $data): array
-    {
-        $data['password'] = encrypt($data['password']);
-
-        return $this->repository->create($data);
-    }
+    protected $fillable = [
+        'id', 'title', 'subtitle', 'description', 'published_at', 'slug', 'active', 'created_at', 'updated_at'
+    ];
 
     /**
-     * @param string $param
-     * @param array $data
-     * @return bool
+     * Get the user that owns the news.
      */
-    public function editBy(string $param, array $data): bool
+    public function author()
     {
-        $data['password'] = encrypt($data['password']);
-
-        return $this->repository->editBy($param, $data);
+        return $this->belongsTo('App\Models\Author', 'author_id');
     }
 }

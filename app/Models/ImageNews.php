@@ -23,23 +23,20 @@
  * THE SOFTWARE.
  */
 
-declare(strict_types=1);
+ namespace App\Models;
 
-namespace App\Providers;
+ use Illuminate\Database\Eloquent\Model;
 
-use App\Models\ImageNews\ImageNews;
-use App\Repositories\ImageNews\ImageNewsRepository;
-use App\Services\ImageNews\ImageNewsService;
-use Illuminate\Support\ServiceProvider;
-
-class ImageNewsServiceProvider extends ServiceProvider
-{
-    public function register()
-    {
-        parent::register();
-
-        $this->app->bind(ImageNewsService::class, function ($app) {
-            return new ImageNewsService(new ImageNewsRepository(new ImageNews()));
-        });
-    }
-}
+ class ImageNews extends Model
+ {
+     /**
+      * The table associated with the model.
+      * 
+      * @var string  
+      */
+    protected $table = "image_news";
+    
+    /**
+     *  The attributes that are mass ass
+     */
+ }
