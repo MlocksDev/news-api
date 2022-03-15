@@ -52,7 +52,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $hidden = [
-        'password',
+        'password'
     ];
 
     /**
@@ -73,13 +73,5 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     public function getJWTCustomClaims()
     {
         return [];
-    }
-
-    /**
-     * Get the articles.
-     */
-    public function articles()
-    {
-        return $this->hasMany('App\Models\Article');
     }
 }

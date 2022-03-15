@@ -42,6 +42,14 @@ class Authors extends Model
      * @var array 
      */
     protected $fillable = [
-        'id', 'name', 'lastname', 'email', 'password', 'gender', 'active', 'created_at', 'updated_at', 'deleted_at'
+        'id', 'name', 'lastname', 'gender', 'active', 'created_at'
     ];
+
+    /**
+     * Get the user that owns the news.
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User', 'user_id');
+    }
 }

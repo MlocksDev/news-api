@@ -23,20 +23,33 @@
  * THE SOFTWARE.
  */
 
- namespace App\Models;
+namespace App\Models;
 
- use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model;
 
- class ImageNews extends Model
- {
-     /**
-      * The table associated with the model.
-      * 
-      * @var string  
-      */
-    protected $table = "image_news";
-    
-    /**
-     *  The attributes that are mass ass
-     */
- }
+class ImageNews extends Model
+{
+  /**
+   * The table associated with the model.
+   * 
+   * @var string  
+   */
+  protected $table = "image_news";
+
+  /**
+   *  The attributes that are mass assignable.
+   * 
+   * @var array
+   */
+  protected $fillable = [
+    'id', 'image', 'description', 'active', 'created_at'
+  ];
+
+  /**
+   * Get the user that owns the image_news.
+   */
+  public function news()
+  {
+    return $this->belongsTo('App\Models\News', 'news_id');
+  }
+}

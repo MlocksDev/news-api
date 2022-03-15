@@ -42,7 +42,7 @@ class News extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'title', 'subtitle', 'description', 'published_at', 'slug', 'active', 'created_at', 'updated_at'
+        'id', 'title', 'subtitle', 'description', 'slug', 'active', 'created_at'
     ];
 
     /**
@@ -51,5 +51,13 @@ class News extends Model
     public function author()
     {
         return $this->belongsTo('App\Models\Author', 'author_id');
+    }
+
+    /**
+     * Get the user that owns the news.
+     */
+    public function comment()
+    {
+        return $this->belongsTo('App\Models\Comment', 'comment_id');
     }
 }
