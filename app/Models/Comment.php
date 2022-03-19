@@ -35,7 +35,7 @@ class Article extends Model
      *
      * @var string
      */
-    protected $table = 'article';
+    protected $table = 'comment';
 
     /**
      * The attributes that are mass assignable.
@@ -43,7 +43,7 @@ class Article extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'title', 'description', 'status'
+        'title', 'description', 'status'
     ];
 
     /**

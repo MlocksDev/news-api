@@ -42,7 +42,7 @@ class ImageNews extends Model
    * @var array
    */
   protected $fillable = [
-    'id', 'image', 'description', 'active', 'created_at'
+    'image', 'description', 'active', 'created_at'
   ];
 
   /**
