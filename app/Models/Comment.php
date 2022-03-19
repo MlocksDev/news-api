@@ -28,7 +28,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 
-class Article extends Model
+class Comment extends Model
 {
     /**
      * The table associated with the model.
@@ -47,7 +47,7 @@ class Article extends Model
     ];
 
     /**
-     * Get the user that owns the article.
+     * Get the user that owns the comment.
      */
     public function user()
     {

@@ -25,10 +25,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Article;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
-class ArticlesController extends Controller
+class CommentController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -42,26 +42,26 @@ class ArticlesController extends Controller
 
     public function list()
     {
-        return response()->json(['articles' => Article::all()]);
+        return response()->json(['comment' => Comment::all()]);
     }
 
     public function listByUser($user_id)
     {
-        $articlesByUser = Article::where('user_id', $user_id)->get();
+        $commentByUser = Comment::where('user_id', $user_id)->get();
 
-        return response()->json(['articles' => $articlesByUser]);
+        return response()->json(['comment' => $commentByUser]);
     }
 
     public function get($id)
     {
         try {
 
-            $article = Article::findOrFail($id);
+            $comment = Comment::findOrFail($id);
 
-            return response()->json(['article' => $article], 200);
+            return response()->json(['comment' => $comment], 200);
         } catch (\Exception $e) {
 
-            return response()->json(['message' => 'Article not found!'], 404);
+            return response()->json(['message' => 'Comment not found!'], 404);
         }
     }
 
@@ -69,9 +69,9 @@ class ArticlesController extends Controller
     {
         $this->validate_request($request);
 
-        $article = Article::create($request->all());
+        $comment = Comment::create($request->all());
 
-        return response()->json(['article' => $article, 'message' => 'CREATED'], 201);
+        return response()->json(['comment' => $comment, 'message' => 'CREATED'], 201);
     }
 
     public function put($id, Request $request)
@@ -81,13 +81,13 @@ class ArticlesController extends Controller
 
         try {
 
-            $article = Article::findOrFail($id);
-            $article->update($request->all());
+            $comment = Comment::findOrFail($id);
+            $comment->update($request->all());
 
-            return response()->json(['article' => $article, 'message' => 'UPDATED'], 200);
+            return response()->json(['comment' => $comment, 'message' => 'UPDATED'], 200);
         } catch (\Exception $e) {
 
-            return response()->json(['message' => 'Article not found!'], 404);
+            return response()->json(['message' => 'Comment not found!'], 404);
         }
     }
 
@@ -96,13 +96,13 @@ class ArticlesController extends Controller
 
         try {
 
-            $article = Article::findOrFail($id);
-            $article->delete();
+            $comment = Comment::findOrFail($id);
+            $comment->delete();
 
             return response(['message' => 'DELETED'], 200);
         } catch (\Exception $e) {
 
-            return response()->json(['message' => 'Article not found!'], 404);
+            return response()->json(['message' => 'Comment not found!'], 404);
         }
     }
 
