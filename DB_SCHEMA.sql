@@ -12,6 +12,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` VARCHAR(255) NOT NULL,
   `created_at` TIMESTAMP NULL DEFAULT NULL,
   `updated_at` TIMESTAMP NULL DEFAULT NULL,
+  `deleted_at` DATETIME NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 
@@ -44,6 +45,7 @@ CREATE TABLE IF NOT EXISTS `news` (
   `active` TINYINT(1) NOT NULL DEFAULT 1,
   `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` DATETIME NULL DEFAULT NULL,
+  `deleted_at` DATETIME NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
   INDEX `news_authors_id` (`author_id` ASC),
@@ -51,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `news` (
 ) ENGINE = InnoDB;
 
 /* CREATE TABLE  `comment` */
-CREATE TABLE IF NOT EXISTS `api_news`.`comment` (
+CREATE TABLE IF NOT EXISTS `comment` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `news_id` INT NOT NULL,
   `title` VARCHAR(255) NOT NULL,
@@ -59,6 +61,7 @@ CREATE TABLE IF NOT EXISTS `api_news`.`comment` (
   `status` TINYINT(1) NOT NULL DEFAULT '1',
   `created_at` TIMESTAMP NULL DEFAULT NULL,
   `updated_at` TIMESTAMP NULL DEFAULT NULL,
+  `deleted_at` DATETIME NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX `comment_news_id` (`news_id` ASC),
   CONSTRAINT `comment_news` FOREIGN KEY (`news_id`) REFERENCES `news` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -78,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `image_news` (
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
   INDEX `image_news_news` (`news_id` ASC),
   CONSTRAINT `image_news_news` FOREIGN KEY (`news_id`) REFERENCES `news` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB;
+) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
 
 /* CREATE TABLE  `migrations` */
 CREATE TABLE IF NOT EXISTS `migrations` (
