@@ -100,7 +100,7 @@ Run the migration command after docker start:
 $ php artisan migrate
 ```
 
-Or run (i.e, import) the following DDL instructions in the file [db_schema.sql](https://github.com/MlocksDev/news-api/blob/master/DB_SCHEMA.sql) directed into the database:
+Or run (i.e, import) the following DDL instructions in the file [DB_SCHEMA.sql](https://github.com/MlocksDev/news-api/blob/master/DB_SCHEMA.sql) directed into the database:
 
 ```sql
 /* DROP AND RECREATE DATABASE */
