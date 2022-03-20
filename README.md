@@ -232,7 +232,7 @@ The output:
 ```json
 {
     "user": {
-        "email": "marthalocks37@gmail.com",
+        "email": "marthalocks@gmail.com",
         "updated_at": "2022-03-20 10:27:21",
         "created_at": "2022-03-20 10:27:21",
         "id": 2
