@@ -52,12 +52,4 @@ class News extends Model
     {
         return $this->belongsTo('App\Models\Author', 'author_id');
     }
-
-    /**
-     * Get the user that owns the news.
-     */
-    public function comment()
-    {
-        return $this->belongsTo('App\Models\Comment', 'comment_id');
-    }
 }
