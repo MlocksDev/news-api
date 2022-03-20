@@ -238,6 +238,29 @@ The output:
 }
 ```
 
+### User Login (POST):
+
+-   **/api/login**
+
+Example:
+
+```bash
+$ curl -d '{"email":"marthalocks@gmail.com", "password": "password"}' \
+-H "Content-Type: application/json" \
+-X POST http://localhost:8000/api/login
+```
+
+The output:
+
+```json
+{
+    "message": "Authorized",
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...",
+    "token_type": "bearer",
+    "expires_in": 3600
+}
+```
+
 # Lumen PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
