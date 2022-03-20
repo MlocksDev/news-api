@@ -205,7 +205,7 @@ $ ./curl-test.sh
 Example:
 
 ```bash
-$ curl -d '{"name": "Martha Locks", "email":"marthalocks@gmail.com", "password": "password", "password_confirmation": "password"}' \
+$ curl -d '{"email":"marthalocks@gmail.com", "password": "password", "password_confirmation": "password"}' \
 -H "Content-Type: application/json" \
 -X POST http://localhost:8000/api/register
 ```
@@ -215,7 +215,6 @@ The output:
 ```json
 {
     "user": {
-        "name": "Martha Locks",
         "email": "marthalocks37@gmail.com",
         "updated_at": "2022-03-20 10:27:21",
         "created_at": "2022-03-20 10:27:21",
