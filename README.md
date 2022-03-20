@@ -180,6 +180,51 @@ CREATE TABLE IF NOT EXISTS `migrations` (
 ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 ```
 
+# Runing the App
+
+In the root project folder start up the project:
+
+```bash
+$ php -S localhost:8000 -t public
+```
+
+And then access [http://localhost:8000/](http://localhost:8000/) on your browser.
+
+To create some entries simple run the [curl-test.sh](https://github.com/MlocksDev/news-api/blob/master/curl-test.sh) script:
+
+```bash
+$ ./curl-test.sh
+```
+
+# Enpoints
+
+### Create User (POST):
+
+-   **/api/register**
+
+Example:
+
+```bash
+$ curl -d '{"name": "Martha Locks", "email":"marthalocks@gmail.com", "password": "password", "password_confirmation": "password"}' \
+-H "Content-Type: application/json" \
+-X POST http://localhost:8000/api/register
+```
+
+The output:
+
+```json
+{
+    "user": {
+        "name": "Martha Locks",
+        "email": "marthalocks37@gmail.com",
+        "updated_at": "2022-03-20 10:27:21",
+        "created_at": "2022-03-20 10:27:21",
+        "id": 2
+    },
+    "message": "CREATED"
+}
+```
+
 # Lumen PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
