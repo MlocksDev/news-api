@@ -32,22 +32,10 @@ CREATE TABLE IF NOT EXISTS `authors` (
   CONSTRAINT `authors_users` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE = InnoDB;
 
-/* CREATE TABLE  `comment` */
-CREATE TABLE IF NOT EXISTS `comment` (
-  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `title` VARCHAR(255) NOT NULL,
-  `description` TEXT NOT NULL,
-  `status` TINYINT(1) NOT NULL DEFAULT '1',
-  `created_at` TIMESTAMP NULL DEFAULT NULL,
-  `updated_at` TIMESTAMP NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE = InnoDB;
-
 /* CREATE TABLE  `news` */
 CREATE TABLE IF NOT EXISTS `news` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `author_id` INT NOT NULL,
-  `comment_id` INT UNSIGNED NOT NULL,
   `title` VARCHAR(100) NOT NULL,
   `subtitle` VARCHAR(155) NOT NULL,
   `description` TEXT NOT NULL,
@@ -59,10 +47,22 @@ CREATE TABLE IF NOT EXISTS `news` (
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
   INDEX `news_authors_id` (`author_id` ASC),
-  INDEX `news_comment_id` (`comment_id` ASC),
-  CONSTRAINT `news_authors` FOREIGN KEY (`author_id`) REFERENCES `authors` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `news_comment` FOREIGN KEY (`comment_id`) REFERENCES `comment` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `news_authors` FOREIGN KEY (`author_id`) REFERENCES `authors` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB;
+
+/* CREATE TABLE  `comment` */
+CREATE TABLE IF NOT EXISTS `api_news`.`comment` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `news_id` INT NOT NULL,
+  `title` VARCHAR(255) NOT NULL,
+  `description` TEXT NOT NULL,
+  `status` TINYINT(1) NOT NULL DEFAULT '1',
+  `created_at` TIMESTAMP NULL DEFAULT NULL,
+  `updated_at` TIMESTAMP NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `comment_news_id` (`news_id` ASC),
+  CONSTRAINT `comment_news` FOREIGN KEY (`news_id`) REFERENCES `news` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
 
 /* CREATE TABLE  `image_news` */
 CREATE TABLE IF NOT EXISTS `image_news` (
