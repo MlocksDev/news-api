@@ -25,12 +25,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Services\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+
+    private UserService $userService;
     /**
      * Create a new controller instance.
      *
@@ -38,6 +40,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
+        $this->userService = new UserService();
     }
 
     /**
@@ -57,13 +60,7 @@ class AuthController extends Controller
 
         try {
 
-            $user = new User();
-            $user->name = $request->input('name');
-            $user->email = $request->input('email');
-            $plainPassword = $request->input('password');
-            $user->password = app('hash')->make($plainPassword);
-
-            $user->save();
+            $user = $this->userService->save($request->input('email'), $request->input('password'));
 
             return response()->json(['user' => $user, 'message' => 'CREATED'], 201);
         } catch (\Exception $e) {

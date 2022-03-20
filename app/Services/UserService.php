@@ -23,23 +23,26 @@
  * THE SOFTWARE.
  */
 
-return [
-    'defaults' => [
-        'guard' => 'api',
-        'passwords' => 'users',
-    ],
+namespace App\Services;
 
-    'guards' => [
-        'api' => [
-            'driver' => 'jwt',
-            'provider' => 'users',
-        ],
-    ],
+use App\Models\User;
 
-    'providers' => [
-        'users' => [
-            'driver' => 'eloquent',
-            'model' => \App\Models\User::class
-        ]
-    ]
-];
+class UserService
+{
+
+    public function __construct()
+    {
+    }
+
+    public function save($email, $password)
+    {
+        $user = new User();
+        $user->email = $email;
+        $plainPassword = $password;
+        $user->password = app('hash')->make($plainPassword);
+
+        $user->save();
+
+        return $user;
+    }
+}
