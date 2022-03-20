@@ -261,6 +261,50 @@ The output:
 }
 ```
 
+### User Logout (POST):
+
+-   **/api/logout**
+-   **Needs token.**
+
+Example:
+
+```bash
+$ curl -H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..." \
+-X POST http://localhost:8000/api/logout
+```
+
+The output:
+
+```json
+{
+    "message": "Successfully logged out"
+}
+```
+
+### Refresh Token (POST):
+
+-   **/api/refresh**
+-   **Needs token.**
+
+Example:
+
+```bash
+$ curl -H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..." \
+-X POST http://localhost:8000/api/refresh
+```
+
+The output:
+
+```json
+{
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...",
+    "token_type": "bearer",
+    "expires_in": 3600
+}
+```
+
 # Lumen PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
@@ -285,7 +329,3 @@ If you discover a security vulnerability within Lumen, please send an e-mail to 
 ## License
 
 The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-
-```
-
-```
