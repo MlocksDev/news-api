@@ -53,7 +53,6 @@ class AuthController extends Controller
     {
         // Validate incoming request
         $this->validate($request, [
-            'name' => 'required|string',
             'email' => 'required|email|unique:users',
             'password' => 'required|between:8,255|confirmed'
         ]);

@@ -7,8 +7,8 @@ EMAIL="marthalocks'$ID'@gmail.com"
 PASSWORD="password'$ID'"
 
 ########## REGISTER USER #############
-JSON_DATA='{"name": "Martha Locks", "email":"'$EMAIL'", "password": "'$PASSWORD'", "password_confirmation": "'$PASSWORD'"}'
-ENDPOINT='api/register'
+JSON_DATA='{"email":"'$EMAIL'", "password": "'$PASSWORD'", "password_confirmation": "'$PASSWORD'"}'
+ENDPOINT='apiregister'
 curl --data "$JSON_DATA" -H "$HEADER" -X POST "$DOMAIN/$ENDPOINT" > curl-output.html
 
 ########## USER LOGIN ###############
@@ -25,6 +25,27 @@ USER_ID=$(curl -H 'Accept: application/json' -H "Authorization: Bearer ${TOKEN}"
 ENDPOINT='api/authors'
 JSON_DATA='{"users_id": "'$USER_ID'","name":"Name New","lastname":"LastName New","gender":"M","active":"1"}'
 curl --data "$JSON_DATA" -H "$HEADER" -H "Authorization: Bearer ${TOKEN}" -X POST "$DOMAIN/$ENDPOINT" > curl-output.html
+
+########## ALL AUTHORS ###############
+ENDPOINT='api/authors'
+curl -H "$HEADER" -H "Authorization: Bearer ${TOKEN}" -X GET "$DOMAIN/$ENDPOINT" > curl-output.html
+
+###### ALL AUTHORS BY USER ############
+ENDPOINT='api/authors/by-user'
+curl -H "$HEADER" -H "Authorization: Bearer ${TOKEN}" -X GET "$DOMAIN/$ENDPOINT/$USER_ID" > curl-output.html
+
+########## AUTHORS BY ID ##############
+ENDPOINT='api/authors'
+curl -H "$HEADER" -H "Authorization: Bearer ${TOKEN}" -X GET "$DOMAIN/$ENDPOINT/$Author_ID" > curl-output.html
+
+######### UPDATE AUTHOR ##############
+ENDPOINT='api/authors'
+JSON_DATA='{"user_id": "'$USER_ID'", "id": '$ID', "name":"Name Update","lastname":"LastName Update","gender":"F","active":"1"}'
+curl --data "$JSON_DATA" -H "$HEADER" -H "Authorization: Bearer ${TOKEN}" -X PUT "$DOMAIN/$ENDPOINT/$ID" > curl-output.html
+
+########## DELETE AUTHOR ############
+ENDPOINT='api/authors'
+curl -H "Authorization: Bearer ${TOKEN}" -X DELETE "$DOMAIN/$ENDPOINT/$ID" > curl-output.html
 
 ######## REFRESH TOKEN ###############
 ENDPOINT='api/refresh'
