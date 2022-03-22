@@ -173,7 +173,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTY0Nzk3ODQ5NSwiZXhwIjoxNjQ3OTgyMDk1LCJuYmYiOjE2NDc5Nzg0OTUsImp0aSI6IjM0VVdNS2lvRVM5Y0N2ZkciLCJzdWIiOjIzLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.ihrSDKtZ1lmZpx6FemGmhCPfuoznU4MEteJaY2ceI24"
+						"value": "{{token}}"
 					}
 				],
 				"body": {
@@ -194,6 +194,66 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Update an Author by Id (PUT)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"users_id\": 1,\n    \"id\": 1,\n    \"name\": \"Locks\",\n    \"lastname\": \"Ribeiro Martha\",\n    \"gender\": \"F\",\n    \"active\": 0\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/authors/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"authors",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTY0Nzk3OTIwOSwiZXhwIjoxNjQ3OTgyODA5LCJuYmYiOjE2NDc5NzkyMDksImp0aSI6IlJZa2gxcnQ1VGx2dUhRamUiLCJzdWIiOjIzLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.7QeMTPUx63INtC80a1eeyvEk9kLuNH-fp1lptrkLS30"
 		}
 	]
 }

@@ -378,7 +378,7 @@ Example:
  curl -d '{"users_id":1,"id":1, "name":"Locks", "lastname":"Ribeiro Martha","gender":"F","active":0}' \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..." \
--X PUT http://localhost:8000/api/authors/19
+-X PUT http://localhost:8000/api/authors/1
 ```
 
 The output:
