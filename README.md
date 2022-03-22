@@ -366,6 +366,39 @@ The output:
 }
 ```
 
+### Update an Author by Id (PUT):
+
+-   **/api/authors/{id}**
+-   **id**: number representing the primary key
+-   **Needs token.**
+
+Example:
+
+```bash
+ curl -d '{"users_id":1,"id":1, "name":"Locks", "lastname":"Ribeiro Martha","gender":"F","active":0}' \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..." \
+-X PUT http://localhost:8000/api/authors/19
+```
+
+The output:
+
+```json
+{
+    "author": {
+        "id": 19,
+        "users_id": 1,
+        "name": "Name Update",
+        "lastname": "LastName Update",
+        "gender": "F",
+        "active": "1",
+        "created_at": "2022-03-06T00:06:39.000000Z",
+        "updated_at": "2022-03-06T00:06:48.000000Z"
+    },
+    "message": "UPDATED"
+}
+```
+
 ### List all Authors (GET):
 
 -   **/api/authors**
@@ -396,7 +429,7 @@ The output:
         },
         {
             "id": 2,
-            "user_id": 1,
+            "users_id": 1,
             "name": "Name",
             "lastname": "LastName",
             "gender": "F",
@@ -428,7 +461,7 @@ The output:
 {
     "author": {
         "id": 2,
-        "user_id": 1,
+        "users_id": 1,
         "name": "Name New",
         "lastname": "LastName New",
         "gender": "F",
@@ -436,39 +469,6 @@ The output:
         "created_at": "2022-03-06T00:06:37.000000Z",
         "updated_at": "2022-03-06T00:06:37.000000Z"
     }
-}
-```
-
-### Update an Author by Id (PUT):
-
--   **/api/authors/{id}**
--   **id**: number representing the primary key
--   **Needs token.**
-
-Example:
-
-```bash
-$ curl -d '{"user_id":1,"id":1, "name":"Name Updated", "lastname":"LastName Updated","gender":"F","active":1}' \
--H "Content-Type: application/json" \
--H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..." \
--X PUT http://localhost:8000/api/authors/19
-```
-
-The output:
-
-```json
-{
-    "author": {
-        "id": 19,
-        "user_id": 1,
-        "name": "Name Update",
-        "lastname": "LastName Update",
-        "gender": "F",
-        "active": "1",
-        "created_at": "2022-03-06T00:06:39.000000Z",
-        "updated_at": "2022-03-06T00:06:48.000000Z"
-    },
-    "message": "UPDATED"
 }
 ```
 
