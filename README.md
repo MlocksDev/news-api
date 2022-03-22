@@ -222,7 +222,7 @@ $ ./curl-test.sh
 Example:
 
 ```bash
-$ curl -d '{"email":"marthalocks@gmail.com", "password": "password", "password_confirmation": "password"}' \
+curl -d '{"email":"marthalocks@gmail.com", "password": "password", "password_confirmation": "password"}' \
 -H "Content-Type: application/json" \
 -X POST http://localhost:8000/api/register
 ```
@@ -248,7 +248,7 @@ The output:
 Example:
 
 ```bash
-$ curl -d '{"email":"marthalocks@gmail.com", "password": "password"}' \
+curl -d '{"email":"marthalocks@gmail.com", "password": "password"}' \
 -H "Content-Type: application/json" \
 -X POST http://localhost:8000/api/login
 ```
@@ -272,7 +272,7 @@ The output:
 Example:
 
 ```bash
-$ curl -H "Content-Type: application/json" \
+curl -H "Content-Type: application/json" \
 -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..." \
 -X POST http://localhost:8000/api/logout
 ```
@@ -293,7 +293,7 @@ The output:
 Example:
 
 ```bash
-$ curl -H "Content-Type: application/json" \
+curl -H "Content-Type: application/json" \
 -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..." \
 -X POST http://localhost:8000/api/refresh
 ```
@@ -316,7 +316,7 @@ The output:
 Example:
 
 ```bash
-$ curl -H 'Accept: application/json' \
+ curl -H 'Accept: application/json' \
 -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..." \
 -X GET http://localhost:8000/api/profile
 ```
@@ -331,6 +331,166 @@ The output:
         "created_at": "2022-03-06T14:44:59.000000Z",
         "updated_at": "2022-03-06T14:44:59.000000Z"
     }
+}
+```
+
+### Create an Author (POST):
+
+-   **/api/authors**
+-   **Needs token.**
+
+Example:
+
+```bash
+ curl -d '{"user_id":1,"name":"Martha", "lastname":"Ribeiro Locks","gender":"F","active":1}' \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..." \
+-X POST http://localhost:8000/api/authors
+```
+
+The output:
+
+```json
+{
+    "author": {
+        "user_id": 1,
+        "name": "Martha",
+        "lastname": "Ribeiro Locks",
+        "gender": "F",
+        "active": 1,
+        "updated_at": "2022-03-06T12:27:00.000000Z",
+        "created_at": "2022-03-06T12:27:00.000000Z",
+        "id": 800
+    },
+    "message": "CREATED"
+}
+```
+
+### List all Authors (GET):
+
+-   **/api/authors**
+-   **Needs token.**
+
+Example:
+
+```bash
+$ curl -H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..." \
+-X GET http://localhost:8000/api/authors/
+```
+
+The output:
+
+```json
+{
+    "authors": [
+        {
+            "id": 1,
+            "users_id": 1,
+            "name": "Name",
+            "lastname": "LastName",
+            "gender": "F",
+            "active": 1,
+            "created_at": "2022-03-04T15:12:49.000000Z",
+            "updated_at": "2022-03-04T15:12:49.000000Z"
+        },
+        {
+            "id": 2,
+            "user_id": 1,
+            "name": "Name",
+            "lastname": "LastName",
+            "gender": "F",
+            "active": 1,
+            "created_at": "2022-03-04T15:12:50.000000Z",
+            "updated_at": "2022-03-04T15:12:50.000000Z"
+        }
+    ]
+}
+```
+
+### Retrieve Author by Id (GET):
+
+-   **/api/authors/{id}**
+-   **id**: number representing the primary key
+-   **Needs token.**
+
+Example:
+
+```bash
+$ curl -H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..." \
+-X GET http://localhost:8000/api/authors/1
+```
+
+The output:
+
+```json
+{
+    "author": {
+        "id": 2,
+        "user_id": 1,
+        "name": "Name New",
+        "lastname": "LastName New",
+        "gender": "F",
+        "active": 1,
+        "created_at": "2022-03-06T00:06:37.000000Z",
+        "updated_at": "2022-03-06T00:06:37.000000Z"
+    }
+}
+```
+
+### Update an Author by Id (PUT):
+
+-   **/api/authors/{id}**
+-   **id**: number representing the primary key
+-   **Needs token.**
+
+Example:
+
+```bash
+$ curl -d '{"user_id":1,"id":1, "name":"Name Updated", "lastname":"LastName Updated","gender":"F","active":1}' \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..." \
+-X PUT http://localhost:8000/api/authors/19
+```
+
+The output:
+
+```json
+{
+    "author": {
+        "id": 19,
+        "user_id": 1,
+        "name": "Name Update",
+        "lastname": "LastName Update",
+        "gender": "F",
+        "active": "1",
+        "created_at": "2022-03-06T00:06:39.000000Z",
+        "updated_at": "2022-03-06T00:06:48.000000Z"
+    },
+    "message": "UPDATED"
+}
+```
+
+### Delete an Author (DELETE):
+
+-   **/api/authors/{id}**
+-   **id**: number representing the primary key
+-   **Needs token.**
+
+Example:
+
+```bash
+$ curl \
+-H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..." \
+-X DELETE http://localhost:8000/api/authors/19
+```
+
+The output:
+
+```json
+{
+    "message": "DELETED"
 }
 ```
 
