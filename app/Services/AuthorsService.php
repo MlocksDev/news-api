@@ -23,61 +23,21 @@
  * THE SOFTWARE.
  */
 
-namespace App\Http\Controllers;
+namespace App\Services;
 
-use App\Models\User;
-use Exception;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Authors;
 
-class UserController extends Controller
+class AuthorsService
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+
     public function __construct()
     {
-        $this->middleware('auth');
     }
 
-    /**
-     * Get the authenticated User.
-     *
-     * @return Response
-     */
-    public function profile()
+    public function save($data)
     {
-        return response()->json(['user' => Auth::user()], 200);
-    }
+        $author = Authors::create($data);
 
-    /**
-     * Get all User.
-     *
-     * @return Response
-     */
-    public function list()
-    {
-        return response()->json(['users' => User::all()], 200);
-    }
-
-    /**
-     * Get one user.
-     *
-     * @return Response
-     */
-    public function get($id)
-    {
-
-        try {
-
-            $user = User::findOrFail($id);
-
-            return response()->json(['user' => $user], 200);
-        } catch (\Exception $e) {
-
-            return response()->json(['message' => 'User not found!'], 404);
-        }
+        return $author;
     }
 }

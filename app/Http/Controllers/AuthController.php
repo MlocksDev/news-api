@@ -70,6 +70,16 @@ class AuthController extends Controller
     }
 
     /**
+     * Get the authenticated User.
+     *
+     * @return Response
+     */
+    public function profile()
+    {
+        return response()->json(['user' => Auth::user()], 200);
+    }
+
+    /**
      * Get a JWT via given credentials.
      *
      * @param  Request  $request

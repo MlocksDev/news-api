@@ -100,7 +100,7 @@ Run the migration command after docker start:
 $ php artisan migrate
 ```
 
-Or run (i.e, import) the following DDL instructions in the file [DB_SCHEMA.sql](https://github.com/MlocksDev/news-api/blob/master/DB_SCHEMA.sql) directed into the database:
+Or run (i.e, import) the following DDL instructions in the file [db_schema.sql](https://github.com/MlocksDev/news-api/blob/master/db_schema.sql) directed into the database:
 
 ```sql
 /* DROP AND RECREATE DATABASE */
@@ -305,6 +305,32 @@ The output:
     "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...",
     "token_type": "bearer",
     "expires_in": 3600
+}
+```
+
+### Retrieve Logged User (GET):
+
+-   **/api/profile**
+-   **Needs token.**
+
+Example:
+
+```bash
+$ curl -H 'Accept: application/json' \
+-H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..." \
+-X GET http://localhost:8000/api/profile
+```
+
+The output:
+
+```json
+{
+    "user": {
+        "id": 20,
+        "email": "marthalocks@gmail.com",
+        "created_at": "2022-03-06T14:44:59.000000Z",
+        "updated_at": "2022-03-06T14:44:59.000000Z"
+    }
 }
 ```
 

@@ -54,19 +54,16 @@ $router->group([
     $router->post('refresh', 'AuthController@refresh');
 
     // User Profile Route  => /api/profile
-    $router->get('profile', 'UserController@profile');
+    $router->get('profile', [
+        'middleware' => 'auth',
+        'uses' => 'AuthController@profile'
+    ]);
 
-    // User by id Route => /api/users/1
-    $router->get('users/{id}', 'UserController@get');
-
-    // All Users Route => /api/users
-    $router->get('users', 'UserController@list');
-
-    // Article Routes
-    $router->get('articles', "ArticlesController@list");
-    $router->get('articles/by-user/{user_id}', "ArticlesController@listByUser");
-    $router->get('articles/{id}', "ArticlesController@get");
-    $router->post('articles', "ArticlesController@create");
-    $router->put('articles/{id}', "ArticlesController@put");
-    $router->delete('articles/{id}', "ArticlesController@delete");
+    // Authors Routes
+    $router->get('authors', "AuthorsController@list");
+    $router->get('authors/by-user/{user_id}', "AuthorsController@listByUser");
+    $router->get('authors/{id}', "AuthorsController@get");
+    $router->post('authors', "AuthorsController@create");
+    $router->put('authors/{id}', "AuthorsController@put");
+    $router->delete('authors/{id}', "AuthorsController@delete");
 });

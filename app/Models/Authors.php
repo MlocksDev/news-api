@@ -42,7 +42,7 @@ class Authors extends Model
      * @var array 
      */
     protected $fillable = [
-        'name', 'lastname', 'gender', 'active', 'created_at'
+        'users_id', 'name', 'lastname', 'gender', 'active', 'created_at'
     ];
 
     /**
