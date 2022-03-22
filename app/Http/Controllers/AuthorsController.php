@@ -116,7 +116,7 @@ class AuthorsController extends Controller
                 'name' => 'required|string',
                 'lastname' => 'required|string',
                 'gender' => 'required|string',
-                'active' => 'required|string',
+                'active' => 'required|boolean',
             ]
         );
     }

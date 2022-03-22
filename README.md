@@ -342,7 +342,7 @@ The output:
 Example:
 
 ```bash
- curl -d '{"user_id":1,"name":"Martha", "lastname":"Ribeiro Locks","gender":"F","active":1}' \
+ curl -d '{"users_id":1,"name":"Martha", "lastname":"Ribeiro Locks","gender":"F","active":1}' \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..." \
 -X POST http://localhost:8000/api/authors
@@ -353,7 +353,7 @@ The output:
 ```json
 {
     "author": {
-        "user_id": 1,
+        "users_id": 1,
         "name": "Martha",
         "lastname": "Ribeiro Locks",
         "gender": "F",

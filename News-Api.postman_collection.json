@@ -120,6 +120,80 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Retrieve Logged User (GET)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9yZWZyZXNoIiwiaWF0IjoxNjQ3OTY4NjYzLCJleHAiOjE2NDc5NzIzNDksIm5iZiI6MTY0Nzk2ODc0OSwianRpIjoiZEs3eUlzQU1EclR0YnZtSiIsInN1YiI6MjMsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.bx7ioInM2BYWJvS_2poO3wTCMO4brPiLAzWxmkoTmeM"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/profile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create an Author (POST)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTY0Nzk3ODQ5NSwiZXhwIjoxNjQ3OTgyMDk1LCJuYmYiOjE2NDc5Nzg0OTUsImp0aSI6IjM0VVdNS2lvRVM5Y0N2ZkciLCJzdWIiOjIzLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.ihrSDKtZ1lmZpx6FemGmhCPfuoznU4MEteJaY2ceI24"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"users_id\": 1,\n    \"name\": \"Martha\",\n    \"lastname\": \"Ribeiro Locks\",\n    \"gender\": \"F\",\n    \"active\": 1\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/authors",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"authors"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
