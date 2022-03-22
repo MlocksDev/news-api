@@ -386,7 +386,7 @@ The output:
 ```json
 {
     "author": {
-        "id": 19,
+        "id": 1,
         "users_id": 1,
         "name": "Name Update",
         "lastname": "LastName Update",
