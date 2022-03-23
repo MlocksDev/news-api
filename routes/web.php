@@ -66,4 +66,12 @@ $router->group([
     $router->post('authors', "AuthorsController@create");
     $router->put('authors/{id}', "AuthorsController@put");
     $router->delete('authors/{id}', "AuthorsController@delete");
+
+    // News Routes
+    $router->get('news', "NewsController@list");
+    $router->get('news/by-author/{author_id}', "NewsController@listByAuthor");
+    $router->get('news/{id}', "NewsController@get");
+    $router->post('news', "NewsController@create");
+    $router->put('news/{id}', "NewsController@put");
+    $router->delete('news/{id}', "NewsController@delete");
 });

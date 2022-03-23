@@ -26,9 +26,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Authors extends Model
 {
+
+    use SoftDeletes;
+
     /**
      * The table associated with the model.
      * 
@@ -50,7 +54,7 @@ class Authors extends Model
      */
     public function user()
     {
-        return $this->belongsTo('App\Models\User', 'users_id');
+        return $this->belongsTo('App\Models\User', 'users_id', 'id');
     }
 
     public function news()

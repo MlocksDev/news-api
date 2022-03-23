@@ -26,9 +26,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class News extends Model
 {
+    use SoftDeletes;
+
     /**
      * The table associated with the model.
      * 
@@ -42,7 +45,7 @@ class News extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'subtitle', 'description', 'slug', 'active', 'created_at'
+        'author_id', 'title', 'subtitle', 'description', 'slug', 'active', 'created_at'
     ];
 
     /**
