@@ -606,6 +606,61 @@ The output:
 }
 ```
 
+### List all News (GET):
+
+-   **/api/news**
+-   **Needs token.**
+
+Example:
+
+```bash
+curl -H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..." \
+-X GET http://localhost:8000/api/news/
+```
+
+The output:
+
+```json
+{
+    "news": [
+        {
+            "id": 1,
+            "author_id": 1,
+            "title": "Noticia",
+            "subtitle": "Nova Noticia",
+            "description": "update",
+            "slug": "noticia",
+            "active": 0,
+            "published_at": "2022-03-22T01:10:20.000000Z",
+            "created_at": "2022-03-22T01:10:20.000000Z",
+            "updated_at": "2022-03-22T20:01:22.000000Z",
+            "deleted_at": null,
+            "author": {
+                "id": 1,
+                "email": "marthalocks74@gmail.com",
+                "created_at": "2022-03-20T19:42:00.000000Z",
+                "updated_at": "2022-03-20T19:42:00.000000Z",
+                "deleted_at": null
+            }
+        },
+        {
+            "id": 2,
+            "author_id": 1,
+            "title": "Noticia",
+            "subtitle": "Nova Noticia",
+            "description": "update",
+            "slug": "noticia",
+            "active": 0,
+            "published_at": "2022-03-22T01:10:20.000000Z",
+            "created_at": "2022-03-22T01:10:20.000000Z",
+            "updated_at": "2022-03-22T20:01:22.000000Z",
+            "deleted_at": null
+        }
+    ]
+}
+```
+
 # Lumen PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)

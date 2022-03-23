@@ -53,6 +53,6 @@ class News extends Model
      */
     public function author()
     {
-        return $this->belongsTo('App\Models\Author', 'author_id');
+        return $this->belongsTo('App\Models\Authors', 'author_id', 'id');
     }
 }
