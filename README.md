@@ -407,7 +407,7 @@ The output:
 Example:
 
 ```bash
-$ curl -H "Content-Type: application/json" \
+curl -H "Content-Type: application/json" \
 -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..." \
 -X GET http://localhost:8000/api/authors/
 ```
@@ -420,8 +420,8 @@ The output:
         {
             "id": 1,
             "users_id": 1,
-            "name": "Name",
-            "lastname": "LastName",
+            "name": "Martha",
+            "lastname": "Ribeiro Locks",
             "gender": "F",
             "active": 1,
             "created_at": "2022-03-04T15:12:49.000000Z",
@@ -430,10 +430,10 @@ The output:
         {
             "id": 2,
             "users_id": 1,
-            "name": "Name",
-            "lastname": "LastName",
+            "name": "Locks",
+            "lastname": "Ribeiro Martha",
             "gender": "F",
-            "active": 1,
+            "active": 0,
             "created_at": "2022-03-04T15:12:50.000000Z",
             "updated_at": "2022-03-04T15:12:50.000000Z"
         }
