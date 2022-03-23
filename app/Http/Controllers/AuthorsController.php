@@ -42,7 +42,9 @@ class AuthorsController extends Controller
 
     public function list()
     {
-        return response()->json(['authors' => Authors::all()]);
+        $authors = new Authors();
+
+        return response()->json(['authors' => $authors->with(['user', 'news'])->get()]);
     }
 
     public function listByUser($user_id)

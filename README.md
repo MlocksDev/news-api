@@ -420,22 +420,65 @@ The output:
         {
             "id": 1,
             "users_id": 1,
-            "name": "Martha",
-            "lastname": "Ribeiro Locks",
-            "gender": "F",
-            "active": 1,
-            "created_at": "2022-03-04T15:12:49.000000Z",
-            "updated_at": "2022-03-04T15:12:49.000000Z"
-        },
-        {
-            "id": 2,
-            "users_id": 1,
             "name": "Locks",
             "lastname": "Ribeiro Martha",
             "gender": "F",
             "active": 0,
-            "created_at": "2022-03-04T15:12:50.000000Z",
-            "updated_at": "2022-03-04T15:12:50.000000Z"
+            "created_at": "2022-03-22T01:10:20.000000Z",
+            "updated_at": "2022-03-22T20:01:22.000000Z",
+            "deleted_at": null,
+            "user": {
+                "id": 1,
+                "email": "marthalocks74@gmail.com",
+                "created_at": "2022-03-20T19:42:00.000000Z",
+                "updated_at": "2022-03-20T19:42:00.000000Z",
+                "deleted_at": null
+            },
+            "news": [
+                {
+                    "id": 1,
+                    "author_id": 1,
+                    "title": "noticia",
+                    "subtitle": "teste",
+                    "description": "teste noticia",
+                    "slug": "new",
+                    "active": 1,
+                    "created_at": "2022-03-22T01:10:20.000000Z",
+                    "updated_at": "2022-03-22T01:10:20.000000Z",
+                    "deleted_at": null
+                },
+                {
+                    "id": 2,
+                    "author_id": 1,
+                    "title": "dede",
+                    "subtitle": "dede",
+                    "description": "dede",
+                    "slug": "ded",
+                    "active": 0,
+                    "created_at": "2022-03-22T01:10:20.000000Z",
+                    "updated_at": "2022-03-22T01:10:20.000000Z",
+                    "deleted_at": null
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "users_id": 22,
+            "name": "Name New",
+            "lastname": "LastName New",
+            "gender": "M",
+            "active": 1,
+            "created_at": "2022-03-22T01:10:46.000000Z",
+            "updated_at": "2022-03-22T01:10:46.000000Z",
+            "deleted_at": null,
+            "user": {
+                "id": 22,
+                "email": "marthalocks'73'@gmail.com",
+                "created_at": "2022-03-22T01:10:46.000000Z",
+                "updated_at": "2022-03-22T01:10:46.000000Z",
+                "deleted_at": null
+            },
+            "news": []
         }
     ]
 }

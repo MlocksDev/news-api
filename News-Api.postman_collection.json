@@ -228,6 +228,43 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "List all Authors (GET)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/authors/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"authors",
+						""
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
@@ -253,7 +290,7 @@
 	"variable": [
 		{
 			"key": "token",
-			"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTY0Nzk3OTIwOSwiZXhwIjoxNjQ3OTgyODA5LCJuYmYiOjE2NDc5NzkyMDksImp0aSI6IlJZa2gxcnQ1VGx2dUhRamUiLCJzdWIiOjIzLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.7QeMTPUx63INtC80a1eeyvEk9kLuNH-fp1lptrkLS30"
+			"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTY0ODA0Mzg2NSwiZXhwIjoxNjQ4MDQ3NDY1LCJuYmYiOjE2NDgwNDM4NjUsImp0aSI6IlppQ1FjcFcwTFVRSGlLanciLCJzdWIiOjIzLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.npytlDr_Ob9k-47cLs9RQ8kvMqfXpSYP3yrNEaMNwaA"
 		}
 	]
 }

@@ -50,6 +50,11 @@ class Authors extends Model
      */
     public function user()
     {
-        return $this->belongsTo('App\Models\User', 'user_id');
+        return $this->belongsTo('App\Models\User', 'users_id');
+    }
+
+    public function news()
+    {
+        return $this->hasMany('App\Models\News', 'author_id', 'id');
     }
 }
