@@ -450,7 +450,7 @@ The output:
 Example:
 
 ```bash
-$ curl -H "Content-Type: application/json" \
+curl -H "Content-Type: application/json" \
 -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..." \
 -X GET http://localhost:8000/api/authors/1
 ```
@@ -462,8 +462,8 @@ The output:
     "author": {
         "id": 2,
         "users_id": 1,
-        "name": "Name New",
-        "lastname": "LastName New",
+        "name": "Ribeiro",
+        "lastname": "Locks",
         "gender": "F",
         "active": 1,
         "created_at": "2022-03-06T00:06:37.000000Z",
@@ -481,9 +481,9 @@ The output:
 Example:
 
 ```bash
-$ curl \
+curl \
 -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..." \
--X DELETE http://localhost:8000/api/authors/19
+-X DELETE http://localhost:8000/api/authors/1
 ```
 
 The output:
