@@ -135,7 +135,7 @@
 					},
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9yZWZyZXNoIiwiaWF0IjoxNjQ3OTY4NjYzLCJleHAiOjE2NDc5NzIzNDksIm5iZiI6MTY0Nzk2ODc0OSwianRpIjoiZEs3eUlzQU1EclR0YnZtSiIsInN1YiI6MjMsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.bx7ioInM2BYWJvS_2poO3wTCMO4brPiLAzWxmkoTmeM"
+						"value": "{{token}}"
 					}
 				],
 				"body": {
@@ -265,6 +265,159 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Retrieve Author by Id (GET)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/authors/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"authors",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete an Author (DELETE)",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/authors/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"authors",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create an News (POST)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"author_id\":1, \"title\":\"noticia\", \"subtitle\": \"nova noticia\", \"description\": \"teste\", \"slug\": \"teste\", \"active\": \"1\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/news",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"news"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update an News by Id (PUT)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"author_id\":1,\"id\":1, \"title\":\"teste\", \"subtitle\":\"new\",\"description\":\"update\",\"slug\":\"atualizar\",\"active\":0}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/news/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"news",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List all News (GET)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/news/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"news",
+						""
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
@@ -290,7 +443,7 @@
 	"variable": [
 		{
 			"key": "token",
-			"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTY0ODA0Mzg2NSwiZXhwIjoxNjQ4MDQ3NDY1LCJuYmYiOjE2NDgwNDM4NjUsImp0aSI6IlppQ1FjcFcwTFVRSGlLanciLCJzdWIiOjIzLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.npytlDr_Ob9k-47cLs9RQ8kvMqfXpSYP3yrNEaMNwaA"
+			"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTY0ODA3MjM5MSwiZXhwIjoxNjQ4MDc1OTkxLCJuYmYiOjE2NDgwNzIzOTEsImp0aSI6IjFwemRleWJqYURYV3hhd3QiLCJzdWIiOjIzLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.0qAZa-2i6jJ-k9PWbzuC96NX1dTrfphRfGMjL_v7Q9c"
 		}
 	]
 }
