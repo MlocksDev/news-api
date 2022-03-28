@@ -541,6 +541,66 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "List all Comment (GET)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/comment/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"comment",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Comment by Id (GET)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/comment/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"comment",
+						"3"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
@@ -566,7 +626,7 @@
 	"variable": [
 		{
 			"key": "token",
-			"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTY0ODUwMjM4NCwiZXhwIjoxNjQ4NTA1OTg0LCJuYmYiOjE2NDg1MDIzODQsImp0aSI6IjRBUTVNMTg5VThsMFBNWngiLCJzdWIiOjIzLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.0xX1x0YgTIw3Qg3s4titKXstbza3O-0HHHPfIoMBDDs"
+			"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTY0ODUwMzA2NywiZXhwIjoxNjQ4NTA2NjY3LCJuYmYiOjE2NDg1MDMwNjcsImp0aSI6InE0cEdJT1NDOHozeVBsVXIiLCJzdWIiOjIzLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.Jn9ZWO_MpAPKOJOlTfadnc_8x_LxcoJNqVBvp5M3FzM"
 		}
 	]
 }

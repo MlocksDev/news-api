@@ -837,6 +837,36 @@ The output:
 }
 ```
 
+### Retrieve Comment by Id (GET):
+
+-   **/api/comment/{id}**
+-   **id**: number representing the primary key
+-   **Needs token.**
+
+Example:
+
+```bash
+curl -H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..." \
+-X GET http://localhost:8000/api/comment/4
+```
+
+The output:
+
+```json
+{
+    "comment": {
+        "id": 4,
+        "news_id": 3,
+        "title": "nova noticia",
+        "description": "teste",
+        "status": 1,
+        "created_at": "2022-03-06T00:06:37.000000Z",
+        "updated_at": "2022-03-06T00:06:37.000000Z"
+    }
+}
+```
+
 # Lumen PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
