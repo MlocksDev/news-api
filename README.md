@@ -780,6 +780,63 @@ The output:
 }
 ```
 
+### List all Comment (GET):
+
+-   **/api/comment**
+-   **Needs token.**
+
+Example:
+
+```bash
+curl -H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..." \
+-X GET http://localhost:8000/api/comment/
+```
+
+The output:
+
+```json
+{
+    "comment": [
+        {
+            "id": 4,
+            "news_id": 3,
+            "title": "Noticia",
+            "description": "update",
+            "status": 0,
+            "created_at": "2022-03-22T01:10:20.000000Z",
+            "updated_at": "2022-03-22T20:01:22.000000Z",
+            "deleted_at": null,
+            "new": {
+                "id": 1,
+                "title": "marthalocks",
+                "subtitle": "martinha",
+                "description": "update",
+                "slug": "noticia",
+                "active": 0,
+                "published_at": "2022-03-22T01:10:20.000000Z",
+                "created_at": "2022-03-20T19:42:00.000000Z",
+                "updated_at": "2022-03-20T19:42:00.000000Z",
+                "deleted_at": null
+            }
+        },
+        {
+            "id": 2,
+            "news_id": 3,
+            "title": "Noticia",
+            "subtitle": "Nova Noticia",
+            "description": "update",
+            "slug": "noticia",
+            "active": 0,
+            "published_at": "2022-03-22T01:10:20.000000Z",
+            "created_at": "2022-03-22T01:10:20.000000Z",
+            "updated_at": "2022-03-22T20:01:22.000000Z",
+            "deleted_at": null
+        }
+    ]
+}
+```
+
 # Lumen PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
