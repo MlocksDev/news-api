@@ -74,4 +74,12 @@ $router->group([
     $router->post('news', "NewsController@create");
     $router->put('news/{id}', "NewsController@put");
     $router->delete('news/{id}', "NewsController@delete");
+
+    // Comment Routes
+    $router->get('comment', "CommentController@list");
+    $router->get('comment/by-news/{news_id}', "CommentController@listByNews");
+    $router->get('comment/{id}', "CommentController@get");
+    $router->post('comment', "CommentController@create");
+    $router->put('comment/{id}', "CommentController@put");
+    $router->delete('comment/{id}', "CommentController@delete");
 });
