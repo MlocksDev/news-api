@@ -45,13 +45,13 @@ class Comment extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'description', 'status'
+        'news_id', 'title', 'description', 'status'
     ];
 
     /**
      * Get the user that owns the comment.
      */
-    public function user()
+    public function news()
     {
         return $this->belongsTo('App\Models\News', 'news_id');
     }

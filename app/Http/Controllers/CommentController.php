@@ -112,9 +112,10 @@ class CommentController extends Controller
         $this->validate(
             $request,
             [
-                'user_id' => 'required',
+                'news_id' => 'required',
                 'title' => 'required|string',
                 'description' => 'required|string',
+                'status' => 'required|boolean'
             ]
         );
     }

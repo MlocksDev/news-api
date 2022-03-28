@@ -474,6 +474,39 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Create an Comment (POST)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"news_id\":3, \"title\":\"comentario\",\"description\": \"teste\",\"status\": \"1\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/comment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"comment"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
@@ -499,7 +532,7 @@
 	"variable": [
 		{
 			"key": "token",
-			"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTY0ODQ3MjAyOCwiZXhwIjoxNjQ4NDc1NjI4LCJuYmYiOjE2NDg0NzIwMjgsImp0aSI6IlBMZHpWUmlZenFwMFBneUoiLCJzdWIiOjIzLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.KG5UVP69c0WONsdBlmFi9h2SCD6oG-vYoD8iYDbaSH8"
+			"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTY0ODUwMTc3NCwiZXhwIjoxNjQ4NTA1Mzc0LCJuYmYiOjE2NDg1MDE3NzQsImp0aSI6IjV1VjVpZnZwdEZMNnpTWFMiLCJzdWIiOjIzLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.cO9pnNC3UwlTJFUwHsHVRXny0phV4B3uTJydXh2KVy4"
 		}
 	]
 }

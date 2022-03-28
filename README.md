@@ -716,6 +716,38 @@ The output:
 }
 ```
 
+### Create an Comment (POST):
+
+-   **/api/comment**
+-   **Needs token.**
+
+Example:
+
+```bash
+curl -d '{"news_id":3, "title":"comentario","description": "teste","status": "1"}'\
+-H "Content-Type: application/json"\
+-H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..."\
+-X POST http://localhost:8000/api/comment
+
+```
+
+The output:
+
+```json
+{
+    "comment": {
+        "news_id": 3,
+        "title": "comentário",
+        "description": "teste",
+        "status": "1",
+        "updated_at": "2022-03-06T12:27:00.000000Z",
+        "created_at": "2022-03-06T12:27:00.000000Z",
+        "id": 800
+    },
+    "message": "CREATED"
+}
+```
+
 # Lumen PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
