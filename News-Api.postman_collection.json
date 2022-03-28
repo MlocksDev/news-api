@@ -507,6 +507,40 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Update an Comment by Id (PUT)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"news_id\":3,\"id\":1, \"title\":\"teste\",\"description\":\"update\",\"status\":0}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/comment/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"comment",
+						"4"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
@@ -532,7 +566,7 @@
 	"variable": [
 		{
 			"key": "token",
-			"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTY0ODUwMTc3NCwiZXhwIjoxNjQ4NTA1Mzc0LCJuYmYiOjE2NDg1MDE3NzQsImp0aSI6IjV1VjVpZnZwdEZMNnpTWFMiLCJzdWIiOjIzLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.cO9pnNC3UwlTJFUwHsHVRXny0phV4B3uTJydXh2KVy4"
+			"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTY0ODUwMjM4NCwiZXhwIjoxNjQ4NTA1OTg0LCJuYmYiOjE2NDg1MDIzODQsImp0aSI6IjRBUTVNMTg5VThsMFBNWngiLCJzdWIiOjIzLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.0xX1x0YgTIw3Qg3s4titKXstbza3O-0HHHPfIoMBDDs"
 		}
 	]
 }

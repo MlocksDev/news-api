@@ -748,6 +748,38 @@ The output:
 }
 ```
 
+### Update an Comment by Id (PUT):
+
+-   **/api/comment/{id}**
+-   **id**: number representing the primary key
+-   **Needs token.**
+
+Example:
+
+```bash
+ curl -d '{"news_id":3,"id":4, "title":"teste","description":"update","status":0}' \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..." \
+-X PUT http://localhost:8000/api/comment/1
+```
+
+The output:
+
+```json
+{
+    "author": {
+        "id": 4,
+        "news_id": 3,
+        "title": "teste",
+        "description": "update",
+        "status": "0",
+        "created_at": "2022-03-06T00:06:39.000000Z",
+        "updated_at": "2022-03-06T00:06:48.000000Z"
+    },
+    "message": "UPDATED"
+}
+```
+
 # Lumen PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
