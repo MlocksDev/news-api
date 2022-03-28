@@ -537,7 +537,7 @@ The output:
 }
 ```
 
-### Create an News (POST):
+### Create a News (POST):
 
 -   **/api/news**
 -   **Needs token.**
@@ -572,7 +572,7 @@ The output:
 }
 ```
 
-### Update an News by Id (PUT):
+### Update n News by Id (PUT):
 
 -   **/api/news/{id}**
 -   **id**: number representing the primary key
@@ -694,7 +694,7 @@ The output:
 }
 ```
 
-### Delete an New (DELETE):
+### Delete a News (DELETE):
 
 -   **/api/news/{id}**
 -   **id**: number representing the primary key
@@ -716,7 +716,7 @@ The output:
 }
 ```
 
-### Create an Comment (POST):
+### Create a Comment (POST):
 
 -   **/api/comment**
 -   **Needs token.**
@@ -748,7 +748,7 @@ The output:
 }
 ```
 
-### Update an Comment by Id (PUT):
+### Update a Comment by Id (PUT):
 
 -   **/api/comment/{id}**
 -   **id**: number representing the primary key
@@ -780,7 +780,7 @@ The output:
 }
 ```
 
-### List all Comment (GET):
+### List all Comments (GET):
 
 -   **/api/comment**
 -   **Needs token.**
@@ -867,7 +867,7 @@ The output:
 }
 ```
 
-### Delete an Comment (DELETE):
+### Delete a Comment (DELETE):
 
 -   **/api/comment/{id}**
 -   **id**: number representing the primary key
