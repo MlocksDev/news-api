@@ -587,7 +587,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8000/api/comment/3",
+					"raw": "http://localhost:8000/api/comment/4",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -596,7 +596,33 @@
 					"path": [
 						"api",
 						"comment",
-						"3"
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete an Comment (DELETE)",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/comment/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"comment",
+						"4"
 					]
 				}
 			},
@@ -626,7 +652,7 @@
 	"variable": [
 		{
 			"key": "token",
-			"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTY0ODUwMzA2NywiZXhwIjoxNjQ4NTA2NjY3LCJuYmYiOjE2NDg1MDMwNjcsImp0aSI6InE0cEdJT1NDOHozeVBsVXIiLCJzdWIiOjIzLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.Jn9ZWO_MpAPKOJOlTfadnc_8x_LxcoJNqVBvp5M3FzM"
+			"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTY0ODUwMzM4NSwiZXhwIjoxNjQ4NTA2OTg1LCJuYmYiOjE2NDg1MDMzODUsImp0aSI6ImNVRmp1N3JHeGhHU29EOGciLCJzdWIiOjIzLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.VtaqlzyR1vxpZs2GnPmdT6U_uSl-x-X8rHZvxEq761Y"
 		}
 	]
 }
