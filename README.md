@@ -1027,6 +1027,28 @@ The output:
 }
 ```
 
+### Delete a ImageNews (DELETE):
+
+-   **/api/image_news/{id}**
+-   **id**: number representing the primary key
+-   **Needs token.**
+
+Example:
+
+```bash
+curl \
+-H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..." \
+-X DELETE http://localhost:8000/api/image_news/1
+```
+
+The output:
+
+```json
+{
+    "message": "DELETED"
+}
+```
+
 # Lumen PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)

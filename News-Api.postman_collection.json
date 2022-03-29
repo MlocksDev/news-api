@@ -627,6 +627,159 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Create a ImageNews (POST)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"news_id\":3,\"image\":\"comentario\",\"description\": \"teste\",\"active\": \"1\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/image_news",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"image_news"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a ImageNews by Id (PUT)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"news_id\":3,\"id\":4, \"image\":\"teste\",\"description\":\"update\",\"active\":0}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/image_news/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"image_news",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List all ImageNews (GET)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/image_news/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"image_news",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve ImageNews by Id (GET)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{token}}"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/image_news/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"image_news",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a ImageNews (DELETE)",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/image_news/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"image_news",
+						"1"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
@@ -652,7 +805,7 @@
 	"variable": [
 		{
 			"key": "token",
-			"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTY0ODUwMzM4NSwiZXhwIjoxNjQ4NTA2OTg1LCJuYmYiOjE2NDg1MDMzODUsImp0aSI6ImNVRmp1N3JHeGhHU29EOGciLCJzdWIiOjIzLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.VtaqlzyR1vxpZs2GnPmdT6U_uSl-x-X8rHZvxEq761Y"
+			"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTY0ODU2MTE2MiwiZXhwIjoxNjQ4NTY0NzYyLCJuYmYiOjE2NDg1NjExNjIsImp0aSI6IkppbTdKMnM3Z09pS0dCWkoiLCJzdWIiOjIzLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.YC1PibAiRSDhFK6PnHLErBiG6AH73avKfhBt-Y0O-To"
 		}
 	]
 }
