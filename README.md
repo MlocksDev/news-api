@@ -572,7 +572,7 @@ The output:
 }
 ```
 
-### Update n News by Id (PUT):
+### Update a News by Id (PUT):
 
 -   **/api/news/{id}**
 -   **id**: number representing the primary key
@@ -994,6 +994,36 @@ The output:
             }
         }
     ]
+}
+```
+
+### Retrieve ImageNews by Id (GET):
+
+-   **/api/image_news/{id}**
+-   **id**: number representing the primary key
+-   **Needs token.**
+
+Example:
+
+```bash
+curl -H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..." \
+-X GET http://localhost:8000/api/image_news/1
+```
+
+The output:
+
+```json
+{
+    "image_news": {
+        "id": 1,
+        "news_id": 3,
+        "image": "nova noticia",
+        "description": "teste",
+        "active": 1,
+        "created_at": "2022-03-06T00:06:37.000000Z",
+        "updated_at": "2022-03-06T00:06:37.000000Z"
+    }
 }
 ```
 
