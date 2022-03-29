@@ -23,36 +23,21 @@
  * THE SOFTWARE.
  */
 
-namespace App\Models;
+namespace App\Services;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\ImageNews;
 
-class ImageNews extends Model
+class ImageNewsService
 {
-  use SoftDeletes;
 
-  /**
-   * The table associated with the model.
-   * 
-   * @var string  
-   */
-  protected $table = "image_news";
+    public function __construct()
+    {
+    }
 
-  /**
-   *  The attributes that are mass assignable.
-   * 
-   * @var array
-   */
-  protected $fillable = [
-    'news_id', 'image', 'description', 'active', 'created_at'
-  ];
+    public function save($data)
+    {
+        $image_news = ImageNews::create($data);
 
-  /**
-   * Get the user that owns the image_news.
-   */
-  public function news()
-  {
-    return $this->belongsTo('App\Models\News', 'news_id');
-  }
+        return $image_news;
+    }
 }

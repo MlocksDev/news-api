@@ -82,4 +82,12 @@ $router->group([
     $router->post('comment', "CommentController@create");
     $router->put('comment/{id}', "CommentController@put");
     $router->delete('comment/{id}', "CommentController@delete");
+
+    // ImageNews Routes
+    $router->get('image_news', "ImageNewsController@list");
+    $router->get('image_news/by-news/{news_id}', "ImageNewsController@listByNews");
+    $router->get('image_news/{id}', "ImageNewsController@get");
+    $router->post('image_news', "ImageNewsController@create");
+    $router->put('image_news/{id}', "ImageNewsController@put");
+    $router->delete('image_news/{id}', "ImageNewsController@delete");
 });
