@@ -28,7 +28,7 @@ namespace App\Http\Controllers;
 use App\Models\ImageNews;
 use Illuminate\Http\Request;
 
-class NewsController extends Controller
+class ImageNewsController extends Controller
 {
     /**
      * Create a new controller instance.

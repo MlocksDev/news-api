@@ -889,6 +889,114 @@ The output:
 }
 ```
 
+### Create a ImageNews (POST):
+
+-   **/api/image_news**
+-   **Needs token.**
+
+Example:
+
+```bash
+curl -d '{"news_id":3,"image":"comentario","description": "teste","active": "1"}'\
+-H "Content-Type: application/json"\
+-H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..."\
+-X POST http://localhost:8000/api/image_news
+
+```
+
+The output:
+
+```json
+{
+    "image_news": {
+        "news_id": 3,
+        "image": "comentario",
+        "description": "teste",
+        "active": "1",
+        "updated_at": "2022-03-06T12:27:00.000000Z",
+        "created_at": "2022-03-06T12:27:00.000000Z",
+        "id": 800
+    },
+    "message": "CREATED"
+}
+```
+
+### Update a ImageNews by Id (PUT):
+
+-   **/api/image_news/{id}**
+-   **id**: number representing the primary key
+-   **Needs token.**
+
+Example:
+
+```bash
+ curl -d '{"news_id":3,"id":1, "image":"teste","description":"update","active":0}' \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..." \
+-X PUT http://localhost:8000/api/image_news/1
+```
+
+The output:
+
+```json
+{
+    "image_news": {
+        "id": 1,
+        "news_id": 3,
+        "image": "teste",
+        "description": "update",
+        "active": "0",
+        "created_at": "2022-03-06T00:06:39.000000Z",
+        "updated_at": "2022-03-06T00:06:48.000000Z"
+    },
+    "message": "UPDATED"
+}
+```
+
+### List all ImageNews (GET):
+
+-   **/api/image_news**
+-   **Needs token.**
+
+Example:
+
+```bash
+curl -H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9..." \
+-X GET http://localhost:8000/api/image_news/
+```
+
+The output:
+
+```json
+{
+    "image_news": [
+        {
+            "id": 1,
+            "news_id": 3,
+            "image": "Noticia",
+            "description": "update",
+            "active": 0,
+            "created_at": "2022-03-22T01:10:20.000000Z",
+            "updated_at": "2022-03-22T20:01:22.000000Z",
+            "deleted_at": null,
+            "new": {
+                "id": 1,
+                "title": "marthalocks",
+                "subtitle": "martinha",
+                "description": "update",
+                "slug": "noticia",
+                "active": 0,
+                "published_at": "2022-03-22T01:10:20.000000Z",
+                "created_at": "2022-03-20T19:42:00.000000Z",
+                "updated_at": "2022-03-20T19:42:00.000000Z",
+                "deleted_at": null
+            }
+        }
+    ]
+}
+```
+
 # Lumen PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
