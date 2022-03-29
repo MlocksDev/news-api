@@ -591,7 +591,7 @@ The output:
 
 ```json
 {
-    "author": {
+    "news": {
         "id": 1,
         "author_id": 1,
         "title": "teste",
@@ -767,7 +767,7 @@ The output:
 
 ```json
 {
-    "author": {
+    "comment": {
         "id": 4,
         "news_id": 3,
         "title": "teste",
